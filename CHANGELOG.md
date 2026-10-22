@@ -1260,3 +1260,4 @@ summarized here.
 - artcraft-native (B-231): a failed first library page is asked for again after 30 seconds instead of never.
 - artcraft-native (B-232): a failed characters reload keeps the character list and says so, instead of emptying it.
 - artcraft-native (B-233): a fal job that failed on fal's side is marked failed instead of spinning forever.
+- artcraft-native (B-234): an image that failed to download is tried again after a minute instead of staying broken for the session.
