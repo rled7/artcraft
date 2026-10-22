@@ -1266,3 +1266,4 @@ summarized here.
 - artcraft-native (B-237): dragging a reference card no longer crashes the app when the list shrank during the drag.
 - artcraft-native (B-238): signing out stays signed out instead of re-importing the desktop app's login on the next start.
 - Notes N-143..N-147 for artcraft-native (nothing changed in the app).
+- artcraft-native (B-239): closing the sign-in window stops a browser sign-in that was still waiting, so it can no longer sign the user in afterwards.
