@@ -1259,3 +1259,4 @@ summarized here.
 - artcraft-native (B-230): the prompt box only colours a whole-word `@Name`, not the start of a longer word.
 - artcraft-native (B-231): a failed first library page is asked for again after 30 seconds instead of never.
 - artcraft-native (B-232): a failed characters reload keeps the character list and says so, instead of emptying it.
+- artcraft-native (B-233): a fal job that failed on fal's side is marked failed instead of spinning forever.
