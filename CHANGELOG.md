@@ -1257,3 +1257,5 @@ summarized here.
 - Frontend enum guard (test flood): 6 tests check the shared TS enums against the Rust enums.
 - artcraft-native (B-229): a character name shared by two characters is sent once, not twice, with the video request.
 - artcraft-native (B-230): the prompt box only colours a whole-word `@Name`, not the start of a longer word.
+- artcraft-native (B-231): a failed first library page is asked for again after 30 seconds instead of never.
+- artcraft-native (B-232): a failed characters reload keeps the character list and says so, instead of emptying it.
