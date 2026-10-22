@@ -189,10 +189,7 @@ impl CreateVideoPage {
           self.refs.videos.clear();
           self.refs.audios.clear();
         },
-        DeckAction::ReorderImages { from, to } => {
-          let item = self.refs.images.remove(from);
-          self.refs.images.insert(to.min(self.refs.images.len()), item);
-        },
+        DeckAction::ReorderImages { from, to } => self.refs.reorder_images(from, to),
         DeckAction::Preview(id) => match self.refs.find_mut(id) {
           // Audio cards play and stop on click (the webapp's DeckCard).
           Some(r) if r.kind == RefKind::Audio => {
