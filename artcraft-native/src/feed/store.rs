@@ -205,11 +205,13 @@ impl FeedStore {
 
   pub fn library_failed(&mut self) {
     self.loading = false;
+    // Every failed page waits before the next request: the grid asks for more on every frame it is near the
+    // bottom, so without a pause a page that keeps failing (offline) is requested, and reported, in a loop.
+    self.retry_library_at = chrono::Utc::now().timestamp() + LIBRARY_RETRY_SECS;
     // Nothing else asks again after a failed first page: `has_more` is only set by a page that arrived, and
-    // the callers only start the library while it is not started. Un-start it, but wait a while first.
+    // the callers only start the library while it is not started. Un-start it so the page asks again.
     if self.next_page == 0 {
       self.library_started = false;
-      self.retry_library_at = chrono::Utc::now().timestamp() + LIBRARY_RETRY_SECS;
     }
   }
 
@@ -399,14 +401,16 @@ mod tests {
   }
 
   #[test]
-  fn a_failed_later_library_page_keeps_its_place() {
+  fn a_failed_later_library_page_keeps_its_place_and_waits_before_asking_again() {
     let mut store = FeedStore::default();
     store.next_library_page();
     store.apply_library_page(MediaKind::Image, 0, &[], 3);
     assert_eq!(store.next_library_page(), Some(1));
     store.library_failed();
     assert!(store.library_started());
-    assert_eq!(store.next_library_page(), Some(1), "scrolling asks for page 1 again at once");
+    assert_eq!(store.next_library_page(), None, "the grid asks on every frame near the bottom; a failing page must not be hammered");
+    store.retry_library_at = 0;
+    assert_eq!(store.next_library_page(), Some(1), "after the pause it is page 1 again");
   }
 
   #[test]
