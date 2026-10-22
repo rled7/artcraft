@@ -884,7 +884,7 @@ where
 
 fn store_session(root: &Path, creds: &Arc<RwLock<Option<Credentials>>>, session: String) {
   let visitor = creds.read().ok().and_then(|c| c.as_ref().and_then(|c| c.visitor.clone()));
-  let new = Credentials { session, visitor };
+  let new = Credentials { session, visitor, signed_out: false };
   session::save(root, &new);
   if let Ok(mut c) = creds.write() {
     *c = Some(new);

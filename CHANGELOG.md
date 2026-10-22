@@ -1264,3 +1264,4 @@ summarized here.
 - artcraft-native (B-235): a library page that keeps failing is retried every 30 seconds instead of on every frame.
 - artcraft-native (B-236): the in-app video player stops and says so when ffmpeg cannot decode a clip, instead of restarting it on every repaint.
 - artcraft-native (B-237): dragging a reference card no longer crashes the app when the list shrank during the drag.
+- artcraft-native (B-238): signing out stays signed out instead of re-importing the desktop app's login on the next start.
