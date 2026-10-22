@@ -1255,3 +1255,5 @@ summarized here.
 - Flux Pro (Inpainting) (B-228, upstream issue #2279): the model is sent to its own inpainting endpoint instead of to the omni endpoint as Flux Pro 1.1, which answered 500.
 - Task database (B-225 follow-up): an unreadable task row is reported once instead of on every polling pass.
 - Frontend enum guard (test flood): 6 tests check the shared TS enums against the Rust enums.
+- artcraft-native (B-229): a character name shared by two characters is sent once, not twice, with the video request.
+- artcraft-native (B-230): the prompt box only colours a whole-word `@Name`, not the start of a longer word.
