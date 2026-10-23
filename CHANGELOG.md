@@ -1268,3 +1268,4 @@ summarized here.
 - Notes N-143..N-147 for artcraft-native (nothing changed in the app).
 - artcraft-native (B-239): closing the sign-in window stops a browser sign-in that was still waiting, so it can no longer sign the user in afterwards.
 - Note N-148 for artcraft-native (nothing changed in the app).
+- grok_consumer_client (B-240): an image prompt that fails to send three times is reported as an error instead of success.
