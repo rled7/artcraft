@@ -1,6 +1,10 @@
 > **About this fork.** This is a community fork of [storytold/artcraft](https://github.com/storytold/artcraft) (Apache-2.0 / MIT, see `LICENSE-APACHE`, `LICENSE-MIT` and `NOTICE`). It is **not** the official ArtCraft release. It carries a long bug-fix sweep: 240 documented fixes (193 with a strong, reproducible trigger), each recorded in [`BUGS.md`](./BUGS.md) with its reachability and evidence, plus a changelog in [`CHANGELOG.md`](./CHANGELOG.md). The sweep is still running, so this is not a claim that the app is bug free. For the official app, use [getartcraft.com](https://getartcraft.com/).
 
 <h1 align="center">ArtCraft</h1>
+
+<p align="center">
+  <a href="https://sonarcloud.io/project/overview?id=storytold_artcraft"><img alt="Scanned by SonarCloud" src="https://img.shields.io/badge/Scanned_by-SonarCloud-4b9fd5?style=flat-square&logo=sonarqubecloud&logoColor=white"></a>
+</p>
 <p align="center"><strong>The IDE for artists.</strong></p>
 
 <!-- Main video: https://www.youtube.com/watch?v=kzvQMdg66Go
