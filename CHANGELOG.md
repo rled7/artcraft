@@ -1240,3 +1240,32 @@ summarized here.
 - Grok video polling (B-221): a finished video that repeatedly fails to download or upload is marked failed after 5 attempts and the user is told, instead of staying pending forever.
 - Grok video polling (B-222): a task whose video never shows up on Grok is marked failed after 30 minutes instead of staying pending forever.
 - Sora success loop (N-131, not counted): one generation that fails to download or upload is logged and the rest of the batch continues.
+- Gradient parser tests (test flood, N-136 not counted): 28 tests cover linear/radial gradients, every colour form, calc(), and the malformed-input errors.
+- Keybinds tests (test flood): registry and preset tables agree, availability gates for record mode and encoding, shared-key exclusivity, and matcher helpers.
+- Markdown renderer (N-137, not counted): image sizes written in px (`300px`, `40%x20px`) now render correctly; 37 tests added for the renderer and front-matter helpers.
+- Model picker tests (test flood): family grouping, curated order with Other last, numeric newest-first sorting, selected-family highlight.
+- OmniGen model hooks tests (test flood): all five hooks checked for caching, disabled-model filtering, shared requests, error notification and retry.
+- Keybinds (B-223): a saved preset that no longer exists, or a damaged saved override, falls back to the defaults instead of breaking every shortcut.
+- Task database (B-224): a task row with a value this build cannot parse is logged and skipped instead of making the whole task list fail for the pollers and the task queue.
+- Task database (B-225): the third-party and Storyteller polling threads no longer stall on one unreadable task row; all list queries share one row conversion.
+- Sora session renewal (B-226): the JWT is now renewed when it is within 12 hours of expiring, as intended, instead of only after it has expired.
+- Rust library tests (test flood): cookie store, clone slot and clone cell.
+- Cloudflare error classifier tests (test flood).
+- Task queue (B-227): the copy-prompt button only says Copied! when the clipboard write succeeded.
+- Flux Pro (Inpainting) (B-228, upstream issue #2279): the model is sent to its own inpainting endpoint instead of to the omni endpoint as Flux Pro 1.1, which answered 500.
+- Task database (B-225 follow-up): an unreadable task row is reported once instead of on every polling pass.
+- Frontend enum guard (test flood): 6 tests check the shared TS enums against the Rust enums.
+- artcraft-native (B-229): a character name shared by two characters is sent once, not twice, with the video request.
+- artcraft-native (B-230): the prompt box only colours a whole-word `@Name`, not the start of a longer word.
+- artcraft-native (B-231): a failed first library page is asked for again after 30 seconds instead of never.
+- artcraft-native (B-232): a failed characters reload keeps the character list and says so, instead of emptying it.
+- artcraft-native (B-233): a fal job that failed on fal's side is marked failed instead of spinning forever.
+- artcraft-native (B-234): an image that failed to download is tried again after a minute instead of staying broken for the session.
+- artcraft-native (B-235): a library page that keeps failing is retried every 30 seconds instead of on every frame.
+- artcraft-native (B-236): the in-app video player stops and says so when ffmpeg cannot decode a clip, instead of restarting it on every repaint.
+- artcraft-native (B-237): dragging a reference card no longer crashes the app when the list shrank during the drag.
+- artcraft-native (B-238): signing out stays signed out instead of re-importing the desktop app's login on the next start.
+- Notes N-143..N-147 for artcraft-native (nothing changed in the app).
+- artcraft-native (B-239): closing the sign-in window stops a browser sign-in that was still waiting, so it can no longer sign the user in afterwards.
+- Note N-148 for artcraft-native (nothing changed in the app).
+- grok_consumer_client (B-240): an image prompt that fails to send three times is reported as an error instead of success.
